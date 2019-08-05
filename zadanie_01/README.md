@@ -6,8 +6,8 @@ Wykonaj stronę o mnie (portfolio), zawierającą:
 * zajawkę z hasłem, mottem (jakieś zdjęcia, animacja)
 * sekcje o mnie (powinno zawierać zdjęcie i kilka słów o sobie)
 * sekcje zainteresowania
-* sekcje umiejętności
-* sekcje projekty z listą z elementem jakim jest to portfolio
+* sekcje umiejętności (ikonki mile widziane -> [fontawesome](https://fontawesome.com/icons)
+* sekcje projekty z listą (każdy ma conajmniej 1 -> to portfolio)
 * stopkę
                  
 Strona nie musi być responsywna. W zadaniu mamy przećwiczyć to co aktualnie umiemy - przećwiczyć podstawowe tagi htmlowe i nadawanie styli.
