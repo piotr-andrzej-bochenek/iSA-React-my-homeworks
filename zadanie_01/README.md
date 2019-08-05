@@ -6,7 +6,7 @@ Wykonaj stronę o mnie (portfolio), zawierającą:
 * zajawkę z hasłem, mottem (jakieś zdjęcia, animacja)
 * sekcje o mnie (powinno zawierać zdjęcie i kilka słów o sobie)
 * sekcje zainteresowania
-* sekcje umiejętności (ikonki mile widziane -> [fontawesome](https://fontawesome.com/icons)
+* sekcje umiejętności (ikonki mile widziane -> [fontawesome](https://fontawesome.com/icons))
 * sekcje projekty z listą (każdy ma conajmniej 1 -> to portfolio)
 * stopkę
                  
