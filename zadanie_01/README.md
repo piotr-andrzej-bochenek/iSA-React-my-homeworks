@@ -24,4 +24,4 @@ Dodatkowa punktacja: **1 pkt**
 * 0,5 pkt za responsywność
 * 0,5 pkt strona jest wystwiona `ghpages`: [ghpages](https://pages.github.com/) oraz przechodzi walidację `W3C` : [W3C](https://validator.w3.org/)
 
-Termin wykonania: **25.18.2019 00:00**
+Termin wykonania: **25.08.2019 00:00**
