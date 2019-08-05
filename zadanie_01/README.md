@@ -1,4 +1,4 @@
-Zadanie polega na podszlifowaniu aktualnej wiedzy
+## Zadanie polega na podszlifowaniu aktualnej wiedzy
 
 Wykonaj stronę o mnie (portfolio), zawierającą:
 
@@ -14,12 +14,12 @@ Strona nie musi być responsywna. W zadaniu mamy przećwiczyć to co aktualnie u
 
 Strona ma zostać wykonana estetycznie, ale nie musi być wykonana w sposób perfekcyjny.
 
-Punktacja: 3 pkt
+*Punktacja: 3 pkt*
 
     1 pkt za wykonanie strony
     2 pkt za estetykę
 
-Dodatkowa punktacja: 1pkt
+*Dodatkowa punktacja: 1pkt*
 
     0,5 pkt za responsywność
     0,5 pkt strona jest wystawiona ghpages: ghpages oraz przechodzi walidację W3C : W3C
