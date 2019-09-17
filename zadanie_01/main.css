@@ -1,0 +1,120 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    background-color: #000000;
+    text-align: center;
+    background: url(stars.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#header--mainheader {
+    margin: 0.25rem;
+    color: yellow;
+}
+
+
+.header--motto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    color: yellow;
+    margin: 0.25rem;
+}
+
+#header--motto--img {
+    display: flex;
+    justify-content: center;
+    padding: 0.25rem;
+    width: 40%;
+    align-items: center;
+}
+
+.header--motto--h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+    width: 20%;
+    min-width: 5%;
+}
+
+.header--motto--par {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+    width: 30%;
+    min-width: 10%;
+}
+
+.header--summary {
+    display: inline;
+    margin: 0 0 0 0;
+    color: orangered;
+}
+
+.header--summary--h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+    margin: 0 0 0 0;
+}
+
+.header--summary--par {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+    margin: 0 0 0 0;
+}
+
+#header--navbar {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0.25rem;
+}
+
+#header--navbar--navlist {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+  
+li {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    float: left;
+}
+  
+li a {
+    display: flex;
+    color: yellow;
+    text-align: center;
+    padding: 0.25rem 2rem;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: orangered;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    background-color: yellow;
+    color: black
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: orange;
+}
