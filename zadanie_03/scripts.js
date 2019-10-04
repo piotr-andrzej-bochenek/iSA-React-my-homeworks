@@ -66,3 +66,7 @@
  * * * * *
 
  */
+
+ //Task 2.1
+ 
+ console.log("Poprawnie dodany skrypt");
