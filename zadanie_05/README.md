@@ -1,4 +1,4 @@
-**Zadanie polega na przećwiczeniu podstaw JS**
+**Zadanie polega na przećwiczeniu struktur JS**
 
 Punktacja: **2 pkt**
 
