@@ -67,6 +67,35 @@
 
  */
 
- //Task 2.1
+ //subtask 2.1
+ console.log('Subtask 2.1')
+ console.log('Script added properly');
+ console.log('')
+
+ //subtask 2.2
+ console.log('Subtask 2.2')
+ function twoNumbersComparator (num1, num2) {
+    const firstNumber = num1;
+    const secondNumber = num2;
+    
+    console.log(`First compared argument is: ${firstNumber}`);
+    console.log(`Second compared argument is: ${secondNumber}`);
+
+    if (typeof firstNumber == 'number' && typeof secondNumber == 'number') {
+        if (firstNumber > secondNumber) {
+            console.log(`After carefully comparing ${firstNumber} with ${secondNumber} I conclude, that ${comparisionResult = firstNumber} is bigger.`);
+            return comparisionResult;
+        } else {
+            console.log(`After carefully comparing ${firstNumber} with ${secondNumber} I conclude, that ${comparisionResult = secondNumber} is bigger.`);
+            return comparisionResult;
+        }
+    } else {
+        console.log(`After carefully comparing ${firstNumber} with ${secondNumber} I conclude, that ${comparisiResult = 'at least one of them is not a number'}`);
+        return comparisionResult;
+    }
+ }
+
+twoNumbersComparator(2,5);
+twoNumbersComparator(2,-5);
+twoNumbersComparator('aaa',5);
  
- console.log("Poprawnie dodany skrypt");
