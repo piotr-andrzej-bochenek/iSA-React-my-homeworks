@@ -102,12 +102,17 @@ console.log('')
 
 //subtask 2.3
 console.log('Subtask 2.3')
-console.log('');
 
-function uppercaseFirstLetter(stringToSplit) {
-    let givenString = stringToSplit;
-    let firstLetterOfString = givenString.slice(0,1).toUpperCase();
-    console.log(firstLetterOfString);
+function uppercaseFirstLetter(givenString) {
+    if (typeof givenString == 'string') {
+        const firstLetterUppercased = givenString.slice(0,1).toUpperCase() + givenString.slice(1);
+        const result = firstLetterUppercased.toString()
+        console.log(`${result} is a string with upper cased first letter from given string "${givenString}".`);
+        return result;
+    } else {
+        console.log('This is not a string.');
+    }
+    
 };
 
 uppercaseFirstLetter('kamil');
