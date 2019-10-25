@@ -67,13 +67,13 @@
 
  */
 
-//subtask 2.1
-console.log('Subtask 2.1');
+//subtask 3.1
+console.log('Subtask 3.1');
 console.log('Script added properly');
 console.log('');
 
-//subtask 2.2
-console.log('Subtask 2.2');
+//subtask 3.2
+console.log('Subtask 3.2');
 function twoNumbersComparator (num1, num2) {
     const firstNumber = num1;
     const secondNumber = num2;
@@ -98,10 +98,10 @@ function twoNumbersComparator (num1, num2) {
 twoNumbersComparator(2,5);
 twoNumbersComparator(2,-5);
 twoNumbersComparator('aaa',5);
-console.log('')
+console.log('');
 
-//subtask 2.3
-console.log('Subtask 2.3')
+//subtask 3.3
+console.log('Subtask 3.3');
 
 function uppercaseFirstLetter(givenString) {
     if (typeof givenString == 'string') {
@@ -112,10 +112,30 @@ function uppercaseFirstLetter(givenString) {
     } else {
         const result = `This argument (${givenString}) is not a string.`;
         console.log(result);
-        return result
+        return result;
     }
     
 };
 
 uppercaseFirstLetter('kamil');
 uppercaseFirstLetter(12);
+console.log('');
+
+//subtask 3.4
+console.log('Subtask 3.4');
+const labirynth = {
+    animals: [
+        { name: 'Pluto', species: 'dog' },
+        { name: 'Garfield', species: 'cat' },
+        { name: 'Simba', species: 'lion' },
+        { name: 'Maniek', species: 'elephant' }
+    ],
+    nonAnimals: [
+        { name: 'R2D2', species: 'robot', skills: ['fixing', 'flying'] },
+        { name: 'C3PO', species: 'robot', skills: ['talking'] }
+    ],
+    showAnimals: function() { console.log(this.animals) },
+    showNonAnimals: function() { console.log(this.nonAnimals) }
+   };
+
+console.log(`a) '${labirynth.animals[1].name}'\nb) '${labirynth.animals[3].species}'\nc) '${labirynth.nonAnimals[0].skills[1]}'`);
