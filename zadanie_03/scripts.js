@@ -147,7 +147,7 @@ function FizzBuzz () {
     const fizz = "Fizz";
     const buzz = "Buzz";
     let fizzBuzzOutput = "'";
-    for (i = 1; i <= 50; i++) {
+    for (let i = 0; i <= 50; i++) {
         if (i % 3 === 0 && i % 5 === 0) {fizzBuzzOutput += (fizz + buzz + " ")}
         else if (i % 3 === 0 ) {fizzBuzzOutput += (fizz + " ")} 
         else if (i % 5 === 0 ) {fizzBuzzOutput += (buzz + " ")}
@@ -159,4 +159,27 @@ function FizzBuzz () {
 };
 
 FizzBuzz();
+console.log('');
 
+//subtask 3.6
+console.log('Subtask 3.6');
+
+function signMultiplier (sign, multiplier) {
+    let signMultiplyingOutput = '';
+    if (typeof sign == 'string' && typeof multiplier == 'number') {
+        if (multiplier < 10) {
+            for (let i = 0; i < multiplier; i++) {
+                signMultiplyingOutput += sign + '-';
+            };
+        } else {
+            for (let i = 0; i < 10; i++) {
+                signMultiplyingOutput += sign + '-';
+            };
+        };
+    };
+    console.log(signMultiplyingOutput);
+    return signMultiplyingOutput;
+};
+
+signMultiplier('$', 5);
+signMultiplier('$', 17);
