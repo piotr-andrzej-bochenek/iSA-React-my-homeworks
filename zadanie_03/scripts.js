@@ -186,3 +186,23 @@ signMultiplier('$', 17);
 console.log('');
 
 //subtask 3.7
+console.log('Subtask 3.7');
+const pizzaDatabase = [
+    {name: 'Margarita', price: 15, ingredients: ['ser', 'sos', 'oregano']},
+    {name: 'Roma', price: 18, ingredients: ['ser', 'sos', 'szynka', 'pieczarki']},
+    {name: 'Salami', price: 18, ingredients: ['ser', 'sos', 'salami']}
+];
+
+function menuPrinter () {
+    let menuItems = "";
+    let menuPrint = "";
+    for (let i = 0; i < 3; i++) {
+        menuItems += `${pizzaDatabase[i].name} (${pizzaDatabase[i].ingredients}) - ${pizzaDatabase[i].price}\n`;
+    };
+    menuItems = menuItems.substring(0, menuItems.length - 1);
+    menuPrint = `'${menuItems}'`;
+    console.log(menuPrint);
+    return menuPrint;
+};
+
+menuPrinter();
