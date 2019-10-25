@@ -114,7 +114,6 @@ function uppercaseFirstLetter(givenString) {
         console.log(result);
         return result;
     }
-    
 };
 
 uppercaseFirstLetter('kamil');
@@ -168,18 +167,22 @@ function signMultiplier (sign, multiplier) {
     let signMultiplyingOutput = '';
     if (typeof sign == 'string' && typeof multiplier == 'number') {
         if (multiplier < 10) {
-            for (let i = 0; i < multiplier; i++) {
+            for (let i = 0; i < multiplier - 1; i++) {
                 signMultiplyingOutput += sign + '-';
             };
         } else {
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 9; i++) {
                 signMultiplyingOutput += sign + '-';
             };
         };
     };
+    signMultiplyingOutput += sign;
     console.log(signMultiplyingOutput);
     return signMultiplyingOutput;
 };
 
 signMultiplier('$', 5);
 signMultiplier('$', 17);
+console.log('');
+
+//subtask 3.7
