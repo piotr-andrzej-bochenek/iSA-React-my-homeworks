@@ -110,7 +110,9 @@ function uppercaseFirstLetter(givenString) {
         console.log(`${result} is a string with upper cased first letter from given string "${givenString}".`);
         return result;
     } else {
-        console.log('This is not a string.');
+        const result = `This argument (${givenString}) is not a string.`;
+        console.log(result);
+        return result
     }
     
 };
