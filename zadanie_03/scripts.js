@@ -139,3 +139,24 @@ const labirynth = {
    };
 
 console.log(`a) '${labirynth.animals[1].name}'\nb) '${labirynth.animals[3].species}'\nc) '${labirynth.nonAnimals[0].skills[1]}'`);
+console.log('');
+
+//subtask 3.5
+console.log('Subtask 3.5')
+function FizzBuzz () {
+    const fizz = "Fizz";
+    const buzz = "Buzz";
+    let fizzBuzzOutput = "'";
+    for (i = 1; i <= 50; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {fizzBuzzOutput += (fizz + buzz + " ")}
+        else if (i % 3 === 0 ) {fizzBuzzOutput += (fizz + " ")} 
+        else if (i % 5 === 0 ) {fizzBuzzOutput += (buzz + " ")}
+    };
+    fizzBuzzOutput = fizzBuzzOutput.substring(0, fizzBuzzOutput.length - 1);
+    fizzBuzzOutput += "'";
+    console.log(fizzBuzzOutput);
+    return fizzBuzzOutput;
+};
+
+FizzBuzz();
+
