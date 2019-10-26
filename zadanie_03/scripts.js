@@ -246,3 +246,20 @@ console.log(`'2.3.3: ${calculator(-1, '*', 8)}'`);
 console.log(`'2.3.4: ${calculator(4, '/', 2)}'`);
 console.log(`'2.3.5: ${calculator(5, '!', 5)}'`);
 console.log(`'2.3.6: ${calculator(4, '/', 0)}'`);
+console.log('')
+
+//subtask 3.9
+console.log('Subtask 3.9');
+function starPrinter () {
+    let starString = '';
+    for (let i = 0; i < 5; i++) {
+        if (i <4) {
+            starString += '* ';
+        }   else {
+            starString += '*';
+        };
+        console.log(starString);
+    };
+};
+
+starPrinter();
