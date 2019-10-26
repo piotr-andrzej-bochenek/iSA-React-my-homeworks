@@ -220,15 +220,6 @@ console.log('');
 
 //subtask 3.8
 console.log('Subtask 3.8');
-
-// 8. Napisz funkcję, która przyjmuje 3 parametry (2x number, 1x string jako operator (dostępne +,-,/,*) i zwraca wartość wyniku:
-//  Input: 1, '+', 2    Output: '2.3.1: 3'
-//  Input: 20, '-', 3   Output: '2.3.2: 17'
-//  Input: -1, '*', 8   Output: '2.3.3: -8'
-//  Input: 4, '/', 2    Output: '2.3.4: 2'
-//  Input: 5, '!', 5    Output: '2.3.5: Nie znany operator'
-//  Input: 4, '/', 0    Output: '2.3.6: Nie można dzielić przez zero'
-
 function calculator(num1, operator, num2) {
     let result;
     if (operator != '+' && operator != '-' && operator != '*' && operator != "/") {
@@ -254,4 +245,4 @@ console.log(`'2.3.2: ${calculator(20, '-', 3)}'`);
 console.log(`'2.3.3: ${calculator(-1, '*', 8)}'`);
 console.log(`'2.3.4: ${calculator(4, '/', 2)}'`);
 console.log(`'2.3.5: ${calculator(5, '!', 5)}'`);
-console.log(`'2.3.5: ${calculator(4, '/', 0)}'`);
+console.log(`'2.3.6: ${calculator(4, '/', 0)}'`);
