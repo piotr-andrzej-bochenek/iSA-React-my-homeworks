@@ -196,9 +196,19 @@ const pizzaDatabase = [
 function menuPrinter () {
     let menuItems = "";
     let menuPrint = "";
-    for (let i = 0; i < 3; i++) {
-        menuItems += `${pizzaDatabase[i].name} (${pizzaDatabase[i].ingredients}) - ${pizzaDatabase[i].price}\n`;
+    let ingredientsCounter;
+    for (let i = 0; i <= pizzaDatabase.length - 1; i++) {
+        ingredientsCounter = pizzaDatabase[i].ingredients.length;
+        let ingredientNumber = 0;
+        let ingredientsList = "";
+        while (ingredientNumber <= ingredientsCounter - 1) {
+            ingredientsList += `${pizzaDatabase[i].ingredients[ingredientNumber]}, `;
+            ingredientNumber++;
+        };
+        ingredientsList = ingredientsList.substring(0, ingredientsList.length -2);
+        menuItems += `${pizzaDatabase[i].name} (${ingredientsList}) - ${pizzaDatabase[i].price}\n`;
     };
+
     menuItems = menuItems.substring(0, menuItems.length - 1);
     menuPrint = `'${menuItems}'`;
     console.log(menuPrint);
