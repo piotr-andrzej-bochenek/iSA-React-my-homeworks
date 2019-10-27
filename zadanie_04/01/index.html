@@ -14,15 +14,18 @@
     function randomBodyColour () {
         const body = document.getElementsByTagName('body')[0];
         const colorsCounter = colors.length;
-        for (let i = 0; i < colorsCounter; i++) {
-            let colorIndex = Math.round(Math.random() * (colors.length - 1));
-            body.style.backgroundColor = colors[colorIndex];
-            colorsLeft[i] = colors.splice(colorIndex, 1);
-        };
-        for (let i = 0; i < colorsCounter; i++) {
-            let colorIndex = Math.round(Math.random() * (colorsLeft.length - 1));
-            body.style.backgroundColor = colorsLeft[colorIndex];
-            colors[i] = colorsLeft.splice(colorIndex, 1);
+        if (colors.length > 0) {
+            for (let i = 0; i < colorsCounter; i++) {
+                let colorIndex = Math.round(Math.random() * (colors.length - 1));
+                body.style.backgroundColor = colors[colorIndex];
+                colorsLeft[i] = colors.splice(colorIndex, 1);
+            };
+        } else {
+            for (let i = 0; i < colorsCounter; i++) {
+                let colorIndex = Math.round(Math.random() * (colorsLeft.length - 1));
+                body.style.backgroundColor = colorsLeft[colorIndex];
+                colors[i] = colorsLeft.splice(colorIndex, 1);
+            };
         };
     };
     setInterval(randomBodyColour, 1000);
