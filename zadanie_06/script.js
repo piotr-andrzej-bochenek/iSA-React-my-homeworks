@@ -45,6 +45,34 @@ console.log('petSurgeon',        petSurgeon.getFullName(),        "Dana Hide");
 var PLASTIC_BAG_CAPACITY = 3500;
 
 // AD 1 - zaimplementuje function constructor dla produktów 'new NAZWA(price, amount)'
+// if bag has a capacity of 3500 and one watermelon takes 1500 units of it,
+// IMHO the proper word is volume
+
+class Product {
+    constructor (price, volume) {
+        this.price = price,
+        this.volume = volume
+    }; 
+};
+
+class Fruit extends Product {
+    constructor(price, volume) {
+        super(price, volume);
+    };
+};
+
+class Dairy extends Product {
+    constructor(price, volume) {
+        super(price, volume);
+    };
+};
+
+class Fish extends Product {
+    constructor(price, volume) {
+        super(price, volume);
+    };
+};
+
 var watermelon = new Fruit(12.90, 1500);
 var apple = new Fruit(1.90, 200);
 var cheese = new Dairy(2.39, 100);
