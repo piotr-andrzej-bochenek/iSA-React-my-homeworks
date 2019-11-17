@@ -7,26 +7,37 @@ var person = {
         return this.name + ' ' + this.surname;
     }
 };
+//dany jest doctor, utworzony z persona
 var doctor = Object.create(person);
+//dany jest journalist, utworzony z persona
 var journalist = Object.create(person);
+//dany jest surgeon, utworzony z doctora
 var surgeon = Object.create(doctor);
+//dany jest remodelingSurgeon, utworzony z doctora
 var remodelingSurgeon = Object.create(surgeon);
+//remodelingSurgeonowi zmieniona zostaje metoda getFullName, by po wywołaniu zwracała Unknown
 remodelingSurgeon.getFullName = function() {
     return "Unknown"
 };
+//dany jest perSurgeon, utworzony z surgeona
 var petSurgeon = Object.create(surgeon);
+//zmiana imienia surgeona
 surgeon.name = "Dana";
+//zmiana imienia remodelingSurgeon na Scully
 remodelingSurgeon.name = "Scully";
+//Prototyp doctora (person) ma zmienione surname na Fox:
 Object.getPrototypeOf(doctor).surname = "Fox";
+//Prototyp journalista (person) ma zmienione surname na Parker (co nadpisuje powyższą zmianę)
 Object.getPrototypeOf(journalist).surname = "Parker";
+//Prototyp surgeona (który jest prototypem petSurgeona), czyli doctor, ma zmienione nazwisko na Hide
 Object.getPrototypeOf(Object.getPrototypeOf(petSurgeon)).surname = "Hide";
 // Try to guess results
-console.log('person',            person.getFullName(),            "--- YOUR ANSWER ---");
-console.log('doctor',            doctor.getFullName(),            "--- YOUR ANSWER ---");
-console.log('journalist',        journalist.getFullName(),        "--- YOUR ANSWER ---");
-console.log('surgeon',           surgeon.getFullName(),           "--- YOUR ANSWER ---");
-console.log('remodelingSurgeon', remodelingSurgeon.getFullName(), "--- YOUR ANSWER ---");
-console.log('petSurgeon',        petSurgeon.getFullName(),        "--- YOUR ANSWER ---");
+console.log('person',            person.getFullName(),            "John Parker");
+console.log('doctor',            doctor.getFullName(),            "John Hide");
+console.log('journalist',        journalist.getFullName(),        "John Parker");
+console.log('surgeon',           surgeon.getFullName(),           "Dana Hide");
+console.log('remodelingSurgeon', remodelingSurgeon.getFullName(), "Unknown");
+console.log('petSurgeon',        petSurgeon.getFullName(),        "Dana Hide");
 
 
 // let's code!
