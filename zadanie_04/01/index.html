@@ -10,25 +10,45 @@
 
     var colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange'];
     var colorsLeft = [];
+    let lastColor = null;
+    const body = document.getElementsByTagName('body')[0];
+
+    // IDEA - CHECK IF LAST VISIBLE COLOR IS EQUAL TO NEWLY RANDOMIZED COLOR....
+    // function lastColorChecker() {
+    //     if (lastColor == null) {
+    //         console.log(`First loop, lastColor initiated and equal ${lastColor}, do colorIndex randomization`);
+    //     } else {
+    //         while (lastColor != )
+    //         console.log(`some consecutive loop, check if last color: ${lastColor} is not equal to colorIndex randomization`);
+    //     };
+    // };
 
     function randomBodyColour () {
-        const body = document.getElementsByTagName('body')[0];
-        const colorsCounter = colors.length;
+        let colorsCounter;
+        let colorIndex;
         if (colors.length > 0) {
+            colorsCounter = colors.length;
             for (let i = 0; i < colorsCounter; i++) {
-                let colorIndex = Math.round(Math.random() * (colors.length - 1));
-                body.style.backgroundColor = colors[colorIndex];
-                colorsLeft[i] = colors.splice(colorIndex, 1);
+                // lastColorChecker();
+                colorIndex = Math.round(Math.random() * (colors.length - 1));
+                colorsLeft[i] = colors.splice(colorIndex, 1);        
             };
+            body.style.backgroundColor = colorsLeft[colorsLeft.length - 1];
+            lastColor = colorsLeft[colorsLeft.length - 1];
+            return colors, colorsLeft, lastColor;
         } else {
+            colorsCounter = colorsLeft.length;
             for (let i = 0; i < colorsCounter; i++) {
-                let colorIndex = Math.round(Math.random() * (colorsLeft.length - 1));
-                body.style.backgroundColor = colorsLeft[colorIndex];
+                colorIndex = Math.round(Math.random() * (colorsLeft.length - 1));
                 colors[i] = colorsLeft.splice(colorIndex, 1);
             };
+            body.style.backgroundColor = colors[colors.length - 1];
+            lastColor = colors[colors.length-1];
+            return colors, colorsLeft, lastColor;
         };
     };
-    setInterval(randomBodyColour, 1000);
+
+setInterval(randomBodyColour, 1000);
 
     // * Napisz tak skrypt by kolory się nie powtarzały, po skończeniu się kolorów wszytsko powinno zostać znowione znowu.
 </script>
