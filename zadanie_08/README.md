@@ -1,6 +1,6 @@
 **Zadanie polega na wykonaniu prostej aplikacji z użyciem React'a**
 
-Zadanie podzielono na 6 części (opis każdej poniżej). Wykonujemy zadanie na własnych branchach w folderze **zadanie_9**. Pamiętajcie by nie zacomittować node_modules!
+Zadanie podzielono na 6 części (opis każdej poniżej). Wykonujemy zadanie na własnych branchach w folderze **zadanie_8**. Pamiętajcie by nie zacomittować node_modules!
 
 Punktacja: 1 część to 0,5pkt - maks 3pkt.
 
