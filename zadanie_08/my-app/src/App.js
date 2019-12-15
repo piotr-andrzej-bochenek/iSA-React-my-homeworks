@@ -3,6 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import players from './players'
 
+const pointsTotal = players.reduce((total, current) => {
+  return (total+current.points)
+  },0);
+
 class RenderPlayersTable extends React.Component {
   constructor(props) {
     super(props);
@@ -33,17 +37,16 @@ class RenderPlayersTable extends React.Component {
           <tfoot>
             <tr>
               <td>Total</td>
-              <td>{players.reduce((total, current) => {
-              return (total+current.points)
-              },0)}
+              <td>{pointsTotal}
               </td>
             </tr>
             <tr>
               <td>Average</td>
-              <td>to be calculated...</td>
+              <td>{pointsTotal/players.length}</td>
             </tr>
 
           </tfoot>
+
         </table>
       </div>
     );
@@ -57,13 +60,5 @@ function App() {
     </div>
   );
 }
-
-// Korzystając z kodu z zadania 1. wyświetl w tablicy dodatkowy wiersz na samym dole,
-// w którym w kolumnie z nagłówkiem Points znajdzie się liczba będąca sumą wszystkich
-// punktów zdobytych przez graczy. W kolumnie Username w tym wierszu niech znajdzie
-// się etykieta Total
-
-//Poniżej tego wiersza dodaj kolejny wiersz, w którym wyświetlimy analogicznie
-//średnią punktów z etykietą Average
 
 export default App;
