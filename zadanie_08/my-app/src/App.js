@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import players from './players'
 
-class RenderTable extends React.Component {
+class RenderPlayersTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -21,10 +21,13 @@ class RenderTable extends React.Component {
           </thead>
 
           <tbody>
-            <tr>
-              <td>User1</td>
-              <td>User1 Points</td>
-            </tr>
+            {players.map((player, index) => {
+              return (
+              <tr key={index}>
+                <td>{player.userName}</td>
+                <td>{player.points}</td>
+              </tr>
+            )})}
           </tbody>
 
         </table>
@@ -36,11 +39,9 @@ class RenderTable extends React.Component {
 function App() {
   return (
     <div>
-      <RenderTable />
+      <RenderPlayersTable />
     </div>
   );
 }
-//W metodzie render wyrenderuj tablicę HTMLową (<table>)
-//zawierającą nagłówki Username oraz Points - w każdym wierszu wyświetl
-//dane poszczególnych obiektów z tablicy zaimportowanej z pliku src/players.js
+
 export default App;
