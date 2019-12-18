@@ -18,6 +18,14 @@ class RenderPlayersTable extends React.Component {
   render() {
     return (
       <div>
+        <button>
+          Red
+        </button>
+        
+        <button>
+          Blue
+        </button>
+
         <table>
           
           <thead>
