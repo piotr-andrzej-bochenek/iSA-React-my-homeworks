@@ -26,12 +26,20 @@ class RenderPlayersTable extends React.Component {
 
           <tbody>
             {players.map((player, index) => {
-              return (
-              <tr key={index}>
-                <td>{player.userName}</td>
-                <td>{player.points}</td>
-              </tr>
-            )})}
+              if (player.points < 100) {
+                return (
+                  <tr key={index}>
+                    <td>{player.userName}</td>
+                    <td>{player.points}</td>
+                  </tr>
+                  )} else {
+                  return (
+                    <tr className="topScore" key={index}>
+                      <td>{player.userName}</td>
+                      <td>{player.points}</td>
+                    </tr>
+                  )}
+              })}
           </tbody>
 
           <tfoot>
