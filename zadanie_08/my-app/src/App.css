@@ -36,8 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-.RenderPlayersTable__topScores {
-  background-color: red;
-  color: white;
-}

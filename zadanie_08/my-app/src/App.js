@@ -11,19 +11,34 @@ class RenderPlayersTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      highlightingColor: "red",
+      highlightingColor: "",
+      backgroundColorChanged: false,
     };
   }
 
   render() {
     return (
       <div>
-        <button>
+        <div>Click here to highlight players with scores equal and above 100 points.</div>
+        <button onClick={() => this.setState({
+                        highlightingColor: "red",
+                        backgroundColorChanged: true,
+        })}>
           Red
         </button>
         
-        <button>
+        <button onClick={() => this.setState({
+                        highlightingColor: "blue",
+                        backgroundColorChanged: true,
+        })}>
           Blue
+        </button>
+
+        <button onClick={() => this.setState({
+                        highlightingColor: "",
+                        backgroundColorChanged: false,
+        })}>
+          None
         </button>
 
         <table>
@@ -47,8 +62,10 @@ class RenderPlayersTable extends React.Component {
                   )} else {
                   return (
                     <tr 
-                      className='RenderPlayersTable__topScores'
-                      style={{background: `${this.state.highlightingColor}`}}
+                      style={{
+                        background: `${this.state.highlightingColor}`,
+                        color: this.state.backgroundColorChanged ? 'white' : '',
+                      }}
                       key={index}
                     >
                       <td>{player.userName}</td>
