@@ -4,14 +4,17 @@ import './App.css';
 import players from './players'
 
 const pointsTotal = players.reduce((total, current) => {
-  return (total+current.points)
+  return (total + current.points)
   },0);
 
 class RenderPlayersTable extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      highlightingColor: "red",
+    };
   }
+
   render() {
     return (
       <div>
@@ -25,7 +28,8 @@ class RenderPlayersTable extends React.Component {
           </thead>
 
           <tbody>
-            {players.map((player, index) => {
+            {
+              players.map((player, index) => {
               if (player.points < 100) {
                 return (
                   <tr key={index}>
@@ -34,12 +38,17 @@ class RenderPlayersTable extends React.Component {
                   </tr>
                   )} else {
                   return (
-                    <tr className="topScore" key={index}>
+                    <tr 
+                      className='RenderPlayersTable__topScores'
+                      style={{background: `${this.state.highlightingColor}`}}
+                      key={index}
+                    >
                       <td>{player.userName}</td>
                       <td>{player.points}</td>
                     </tr>
-                  )}
-              })}
+                  )};
+              })
+            }
           </tbody>
 
           <tfoot>
