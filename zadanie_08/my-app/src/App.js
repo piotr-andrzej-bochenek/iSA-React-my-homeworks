@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import players from './players'
+import players from './players.json'
 
 const pointsTotal = players.reduce((total, current) => {
   return (total + current.points)
