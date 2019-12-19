@@ -11,42 +11,50 @@ class RenderPlayersTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      highlightingColor: "",
+      highlightingColor: '',
       backgroundColorChanged: false,
     };
   }
 
   render() {
     return (
-      <div>
-        <div>Click here to highlight players with scores equal and above 100 points.</div>
-        <button onClick={() => this.setState({
-                        highlightingColor: "red",
-                        backgroundColorChanged: true,
-        })}>
-          Red
-        </button>
-        
-        <button onClick={() => this.setState({
-                        highlightingColor: "blue",
-                        backgroundColorChanged: true,
-        })}>
-          Blue
-        </button>
-
-        <button onClick={() => this.setState({
-                        highlightingColor: "",
-                        backgroundColorChanged: false,
-        })}>
-          None
-        </button>
-
-        <table>
+      <div className='App'>
+        <div className='App__header'>
+          Click here to highlight players with scores equal and above 100 points.
+        </div>
+        <div className='App__buttons'>
+          <button
+            style = {{backgroundColor: 'red'}}
+            onClick = {() => this.setState({
+                    highlightingColor: 'red',
+                    backgroundColorChanged: true,
+          })}>
+            Red
+          </button>
           
-          <thead>
+          <button
+            style = {{backgroundColor: 'blue'}}
+            onClick = {() => this.setState({
+                    highlightingColor: 'blue',
+                    backgroundColorChanged: true,
+          })}>
+            Blue
+          </button>
+
+          <button onClick = {() => this.setState({
+                    highlightingColor: "",
+                    backgroundColorChanged: false,
+          })}>
+            None
+          </button>
+        </div>
+
+        <table className='App__table'>
+          
+          <thead >
             <tr>
-              <th>User Name</th>
-              <th>Points</th>
+              <th> User name </th>
+              <th> Points </th>
             </tr>
           </thead>
 
@@ -55,21 +63,21 @@ class RenderPlayersTable extends React.Component {
               players.map((player, index) => {
               if (player.points < 100) {
                 return (
-                  <tr key={index}>
-                    <td>{player.userName}</td>
-                    <td>{player.points}</td>
+                  <tr key = {index}>
+                    <td> {player.userName} </td>
+                    <td> {player.points} </td>
                   </tr>
                   )} else {
                   return (
-                    <tr 
+                    <tr
                       style={{
-                        background: `${this.state.highlightingColor}`,
+                        backgroundColor: `${this.state.highlightingColor}`,
                         color: this.state.backgroundColorChanged ? 'white' : '',
                       }}
-                      key={index}
+                      key = {index}
                     >
-                      <td>{player.userName}</td>
-                      <td>{player.points}</td>
+                      <td> {player.userName} </td>
+                      <td> {player.points} </td>
                     </tr>
                   )};
               })
@@ -78,13 +86,12 @@ class RenderPlayersTable extends React.Component {
 
           <tfoot>
             <tr>
-              <td>Total</td>
-              <td>{pointsTotal}
-              </td>
+              <td> Total </td>
+              <td> {pointsTotal} </td>
             </tr>
             <tr>
               <td>Average</td>
-              <td>{pointsTotal/players.length}</td>
+              <td> {pointsTotal / players.length} </td>
             </tr>
 
           </tfoot>

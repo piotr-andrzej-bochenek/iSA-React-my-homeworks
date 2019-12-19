@@ -1,13 +1,13 @@
 [
-    {"userName":"","points":0},
-    {"userName":"","points":0},
-    {"userName":"","points":0},
-    {"userName":"","points":0},
-    {"userName":"","points":0},
-    {"userName":"","points":0},
-    {"userName":"","points":500},
-    {"userName":"","points":0},
-    {"userName":"","points":0},
-    {"userName":"","points":0},
-    {"userName":"","points":100}
+    {"userName":"Spock","points":101},
+    {"userName":"T'Pol","points":99},
+    {"userName":"Sarek","points":111},
+    {"userName":"Michael Burnham","points":19},
+    {"userName":"Tuvok","points":100},
+    {"userName":"Borg","points":999},
+    {"userName":"Seven of Nine","points":90},
+    {"userName":"Saru","points":11},
+    {"userName":"Odo","points":78},
+    {"userName":"Quark","points":97},
+    {"userName":"Elim Garak","points":100}
 ]
