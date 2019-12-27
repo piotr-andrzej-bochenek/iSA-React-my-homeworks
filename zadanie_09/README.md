@@ -10,7 +10,7 @@ Punktacja:
 * część 3-5: po 1pkt
 * część 6-7: po 0,5pkt
 
-Termin wykonania: **19.04.2019**
+Termin wykonania: **25.01.2020**
 
 ### Część 1 - pobieranie danych
 
