@@ -1,10 +1,15 @@
 import React from 'react';
 
+import PlayerRow from './PlayerRow';
+
 export default class Players extends React.Component {
-    state = {
-        highlightingColor: '',
-        backgroundColorChanged: false,
-    }
+    constructor(props) {
+        super(props);
+        this.state = {
+            highlightingColor: '',
+            backgroundColorChanged: false,
+        };
+    };
 
     render() {
         return (
@@ -51,27 +56,23 @@ export default class Players extends React.Component {
         
                     <tbody>
                     { 
-                        this.props.players.map((player, index) => {
+                        this.props.players.map((player) => {
                             if (player.points < 100) {
                                 return (
-                                    <tr key = {index} >
-                                        <td> {player.userName} </td>
-                                        <td> {player.points} </td>
-                                    </tr>
+                                    <PlayerRow
+                                        key={player.id}
+                                        player={player}
+                                    />
                                 )} else {
                                     return (
-                                        <tr
-                                            style={{
-                                                backgroundColor: `${this.state.highlightingColor}`,
-                                                color: this.state.backgroundColorChanged ? 'white' : '',
-                                            }}
-                                            key = {index}
-                                        >
-                                            <td> {player.userName} </td>
-                                            <td> {player.points} </td>
-                                        </tr>
+                                        <PlayerRow
+                                        key={player.id}
+                                        player={player}
+                                        highlightingColor= {this.state.highlightingColor}
+                                        backgroundColorChanged={this.state.backgroundColorChanged}
+                                    />
                                     );
-                            };
+                                };
                         })
                     }
                     </tbody>
