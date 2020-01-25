@@ -89,6 +89,10 @@ export default class Players extends React.Component {
                     </tfoot>
         
                 </table>
+                <form onSubmit={this.handleOnSubmit}>
+                    <input value="" onChange={this.handleOnChange}></input>
+                    <button onClick={this.handleOnClick}>Add</button>
+                </form>
             </div>
         );
     };
