@@ -2,6 +2,11 @@ import React from 'react';
 
 export default class PlayerRow extends React.Component {
 
+    onRemoveButtonClick = id => {
+       console.log(`ID be deleted: ${id}`);
+    
+    }
+
     render() {
         return (
             <tr 
@@ -13,7 +18,7 @@ export default class PlayerRow extends React.Component {
                 <td> {this.props.player.userName} </td>
                 <td> {this.props.player.points} </td>
                 <td>
-                    <button>X</button>
+                    <button onClick={() => this.onRemoveButtonClick(this.props.player.id)}> X </button>
                 </td>
             </tr>
         );
