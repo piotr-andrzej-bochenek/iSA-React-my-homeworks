@@ -12,6 +12,9 @@ export default class PlayerRow extends React.Component {
                 key = {this.props.player.id} >
                 <td> {this.props.player.userName} </td>
                 <td> {this.props.player.points} </td>
+                <td>
+                    <button>X</button>
+                </td>
             </tr>
         );
     };

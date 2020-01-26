@@ -78,6 +78,7 @@ export default class Players extends React.Component {
                         <tr>
                             <th> User name </th>
                             <th> Points </th>
+                            <th> Remove </th>
                         </tr>
                     </thead>
         
