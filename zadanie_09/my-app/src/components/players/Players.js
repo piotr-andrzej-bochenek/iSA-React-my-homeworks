@@ -28,7 +28,7 @@ export default class Players extends React.Component {
     handleOnSubmit = event => {
         event.preventDefault();
 
-        const maxId = parseInt(this.props.players.reduce( (total, current) => current.id));
+        const maxId = parseInt(this.props.players.reduce( (total, current) => current.id, 0));
 
         const newPlayer = {
             id: `${maxId + 1}`,
@@ -116,7 +116,10 @@ export default class Players extends React.Component {
                         </tr>
                         <tr>
                             <td> Average </td>
-                            <td> {Math.round(this.props.sumOfPoints / this.props.players.length)} </td>
+                            <td> {
+                                    Math.round(this.props.sumOfPoints / this.props.players.length)
+                                }
+                            </td>
                         </tr>
                     </tfoot>
         
