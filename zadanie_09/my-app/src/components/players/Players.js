@@ -28,8 +28,10 @@ export default class Players extends React.Component {
     handleOnSubmit = event => {
         event.preventDefault();
 
+        const maxId = parseInt(this.props.players.reduce( (total, current) => current.id));
+
         const newPlayer = {
-            id: `${this.props.players.length}`,
+            id: `${maxId + 1}`,
             userName: this.state.userName,
             points: parseInt(Math.floor(Math.random() * 200)),
         };
