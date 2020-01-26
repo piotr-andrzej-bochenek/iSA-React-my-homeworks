@@ -38,13 +38,21 @@ class App extends React.Component {
     .finally( () => this.setState({ isLoading: false }));
   };
 
-  handleOnAction = (newPlayer) => {
+  handleAddPlayer = (newPlayer) => {
     this.setState({
             players: [
                 ...this.state.players,
                 newPlayer,
             ],
             sumOfPoints: this.state.sumOfPoints + newPlayer.points,
+    });
+  };
+
+  handleRemovePlayer = (id) => {
+    const remainingPlayers = this.state.players.filter( player => player.id !== id)
+    this.setState({
+      players: remainingPlayers,
+      sumOfPoints: remainingPlayers.reduce( (total, current) => total + current.points, 0),
     });
   };
 
@@ -67,7 +75,8 @@ class App extends React.Component {
         <Players
           players={this.state.players}
           sumOfPoints={this.state.sumOfPoints}
-          onAdd={this.handleOnAction}
+          onAdd={this.handleAddPlayer}
+          onRemove={this.handleRemovePlayer}
         />
       </div>
     );

@@ -90,6 +90,7 @@ export default class Players extends React.Component {
                                     <PlayerRow
                                         key={player.id}
                                         player={player}
+                                        onRemove={this.props.onRemove}
                                     />
                                 )} else {
                                     return (
@@ -98,6 +99,7 @@ export default class Players extends React.Component {
                                         player={player}
                                         highlightingColor={this.state.highlightingColor}
                                         backgroundColorChanged={this.state.backgroundColorChanged}
+                                        onRemove={this.props.onRemove}
                                     />
                                     );
                                 };

@@ -3,8 +3,7 @@ import React from 'react';
 export default class PlayerRow extends React.Component {
 
     onRemoveButtonClick = id => {
-       console.log(`ID be deleted: ${id}`);
-    
+        this.props.onRemove(id);
     }
 
     render() {
