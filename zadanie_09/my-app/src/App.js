@@ -18,8 +18,15 @@ class App extends React.Component {
     fetch('/data/players.json')
     .then( response => response.json())
     .then( fetchedData => {
+      const keys = Object.keys(fetchedData);
+      const formattedData = keys.map(key => {
+          return {
+              id: key,
+              ...fetchedData[key],
+          }
+      });
       this.setState({ 
-        players: fetchedData,
+        players: formattedData,
         });
       })
     .then( ()  => {
@@ -29,6 +36,16 @@ class App extends React.Component {
     })
     .catch( error => this.setState({ error: error }))
     .finally( () => this.setState({ isLoading: false }));
+  };
+
+  handleOnAction = (newPlayer) => {
+    this.setState({
+            players: [
+                ...this.state.players,
+                newPlayer,
+            ],
+            sumOfPoints: this.state.sumOfPoints + newPlayer.points,
+    });
   };
 
   componentDidMount() {
@@ -50,6 +67,7 @@ class App extends React.Component {
         <Players
           players={this.state.players}
           sumOfPoints={this.state.sumOfPoints}
+          onAdd={this.handleOnAction}
         />
       </div>
     );

@@ -2,13 +2,40 @@ import React from 'react';
 
 import PlayerRow from './PlayerRow';
 
+const initialFormState = {
+    userName: '',
+    points: 0,
+};
+
 export default class Players extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             highlightingColor: '',
             backgroundColorChanged: false,
+            ...initialFormState,
         };
+    };
+    
+    handleOnChange = event => {
+        event.preventDefault();
+
+        this.setState({
+            userName: event.target.value,
+        });
+    };
+
+    handleOnSubmit = event => {
+        event.preventDefault();
+
+        const newPlayer = {
+            id: `${this.props.players.length}`,
+            userName: this.state.userName,
+            points: parseInt(Math.floor(Math.random() * 200)),
+        };
+
+        this.props.onAdd(newPlayer);
+        this.setState(initialFormState);
     };
 
     render() {
@@ -55,7 +82,7 @@ export default class Players extends React.Component {
                     </thead>
         
                     <tbody>
-                    { 
+                    {
                         this.props.players.map((player) => {
                             if (player.points < 100) {
                                 return (
@@ -68,7 +95,7 @@ export default class Players extends React.Component {
                                         <PlayerRow
                                         key={player.id}
                                         player={player}
-                                        highlightingColor= {this.state.highlightingColor}
+                                        highlightingColor={this.state.highlightingColor}
                                         backgroundColorChanged={this.state.backgroundColorChanged}
                                     />
                                     );
@@ -90,8 +117,8 @@ export default class Players extends React.Component {
         
                 </table>
                 <form onSubmit={this.handleOnSubmit}>
-                    <input value="" onChange={this.handleOnChange}></input>
-                    <button onClick={this.handleOnClick}>Add</button>
+                    <input value={this.state.userName} onChange={this.handleOnChange} />
+                    <button>Add</button>
                 </form>
             </div>
         );
