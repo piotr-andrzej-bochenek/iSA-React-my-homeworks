@@ -1,4 +1,5 @@
 import * as React from 'react';
+import AddTask from '../addTask/AddTask';
 
 export const TODO_API_ENDPOINT = 'https://jfdz12-homework-task-10-pab.firebaseio.com';
 
@@ -38,6 +39,7 @@ export default class ToDo extends React.Component {
         return (
             <div>
                 <h1>My "to do" list</h1>
+                <AddTask />
             </div>
         );
     };
