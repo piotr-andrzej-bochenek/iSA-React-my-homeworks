@@ -50,12 +50,12 @@ export default class ToDo extends React.Component {
 
         return (
             <div>
-                <h1>My "to do" list</h1>
+                <h1>My first "to do" list:</h1>
                 <Table celled structured>
                     <Table.Header>
                         <Table.Row>
                         <Table.HeaderCell>Task</Table.HeaderCell>
-                        <Table.HeaderCell>Done</Table.HeaderCell>
+                        <Table.HeaderCell>Done?</Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
 
