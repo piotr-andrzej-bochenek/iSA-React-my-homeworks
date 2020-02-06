@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Table, Icon, Button } from 'semantic-ui-react';
+import { Table, Icon, Button, Checkbox } from 'semantic-ui-react';
 
 import AddTask from '../addTask/AddTask';
 
@@ -74,13 +74,9 @@ export default class ToDo extends React.Component {
                             return (
                                 <Table.Row key={todo.id} id={todo.id}>
                                     <Table.Cell>{todo.task}</Table.Cell>
-                                    {
-                                    todo.done === true
-                                    ? <Table.Cell>
-                                        <Icon color='green' name='checkmark' size='large' />
+                                    <Table.Cell>
+                                        <Checkbox toggle checked={todo.done}/>
                                     </Table.Cell>
-                                    : <Table.Cell />
-                                    }
                                     <Table.Cell>
                                         <Button negative icon onClick={() => this.handleOnDeleteClick(todo.id)} >
                                             <Icon name='trash' />
