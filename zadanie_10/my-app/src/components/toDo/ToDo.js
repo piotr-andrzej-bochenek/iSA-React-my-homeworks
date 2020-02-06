@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Table, Icon } from 'semantic-ui-react';
+import { Table, Icon, Button } from 'semantic-ui-react';
 
 import AddTask from '../addTask/AddTask';
 
@@ -28,7 +28,7 @@ export default class ToDo extends React.Component {
                 });
             })
             .catch( error => {
-                alert("No tasks yet, please add some tasks!");
+                alert("Task list is empty, please add some tasks!");
 
                 this.setState({
                   todoList: [],
@@ -39,6 +39,15 @@ export default class ToDo extends React.Component {
 
     handleOnAction = () => {
         this.fetchToDoList();
+    };
+
+    handleOnDeleteClick = id => {
+        fetch(`${TODO_API_ENDPOINT}/todo/${id}.json`, {
+            method: 'DELETE',
+        })
+        .then(() => {
+            this.handleOnAction();
+        })
     };
 
     componentDidMount() {
@@ -56,19 +65,27 @@ export default class ToDo extends React.Component {
                         <Table.Row>
                         <Table.HeaderCell>Task</Table.HeaderCell>
                         <Table.HeaderCell>Done?</Table.HeaderCell>
+                        <Table.HeaderCell></Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
 
                     <Table.Body>
                         {todoList.map( todo => {
                             return (
-                                <Table.Row key={todo.id}>
+                                <Table.Row key={todo.id} id={todo.id}>
                                     <Table.Cell>{todo.task}</Table.Cell>
-                                    {todo.done !== true
+                                    {
+                                    todo.done === true
                                     ? <Table.Cell>
                                         <Icon color='green' name='checkmark' size='large' />
                                     </Table.Cell>
-                                    : <Table.Cell />}
+                                    : <Table.Cell />
+                                    }
+                                    <Table.Cell>
+                                        <Button negative icon onClick={() => this.handleOnDeleteClick(todo.id)} >
+                                            <Icon name='trash' />
+                                        </Button>
+                                    </Table.Cell>
                                 </Table.Row>
                             );
                         })}
