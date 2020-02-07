@@ -8,6 +8,7 @@ export const TODO_API_ENDPOINT = 'https://jfdz12-homework-task-10-pab.firebaseio
 export default class ToDo extends React.Component {
     state = {
         todoList: [],
+        editId: null,
         error: "",
     };
 
@@ -41,9 +42,9 @@ export default class ToDo extends React.Component {
         this.fetchToDoList();
     };
 
-    handleStatusChange = (id, done) => {
+    handleStatusChange = (id, isDone) => {
         const formattedData = {
-           done: !done,
+           done: !isDone,
         };
 
         fetch(`${TODO_API_ENDPOINT}/todo/${id}.json`, {
@@ -54,6 +55,12 @@ export default class ToDo extends React.Component {
             this.handleOnAction();
         });
     };
+
+    handleOnEditClick = idSelectedToEdit => {
+        this.setState({
+            editId: idSelectedToEdit,
+        })
+    }
 
     handleOnDeleteClick = id => {
         fetch(`${TODO_API_ENDPOINT}/todo/${id}.json`, {
@@ -80,6 +87,7 @@ export default class ToDo extends React.Component {
                         <Table.HeaderCell>Task</Table.HeaderCell>
                         <Table.HeaderCell>Done?</Table.HeaderCell>
                         <Table.HeaderCell></Table.HeaderCell>
+                        <Table.HeaderCell></Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
 
@@ -94,6 +102,11 @@ export default class ToDo extends React.Component {
                                             checked={todo.done}
                                             onChange={()=>this.handleStatusChange(todo.id, todo.done)}
                                         />
+                                    </Table.Cell>
+                                    <Table.Cell>
+                                        <Button primary icon onClick={() => this.handleOnEditClick(todo.id)} >
+                                            <Icon name='edit' />
+                                        </Button>
                                     </Table.Cell>
                                     <Table.Cell>
                                         <Button negative icon onClick={() => this.handleOnDeleteClick(todo.id)} >
