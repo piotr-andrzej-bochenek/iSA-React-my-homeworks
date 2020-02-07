@@ -41,6 +41,20 @@ export default class ToDo extends React.Component {
         this.fetchToDoList();
     };
 
+    handleSetDone = (id) => {
+        const formattedData = {
+           done: true,
+        };
+
+        fetch(`${TODO_API_ENDPOINT}/todo/${id}.json`, {
+            method: 'PATCH',
+            body: JSON.stringify(formattedData)
+        })
+        .then(() => {
+            this.handleOnAction();
+        });
+    };
+
     handleOnDeleteClick = id => {
         fetch(`${TODO_API_ENDPOINT}/todo/${id}.json`, {
             method: 'DELETE',
@@ -75,7 +89,11 @@ export default class ToDo extends React.Component {
                                 <Table.Row key={todo.id} id={todo.id}>
                                     <Table.Cell>{todo.task}</Table.Cell>
                                     <Table.Cell>
-                                        <Checkbox toggle checked={todo.done}/>
+                                        <Checkbox
+                                            toggle
+                                            checked={todo.done}
+                                            onChange={()=>this.handleSetDone(todo.id)}
+                                        />
                                     </Table.Cell>
                                     <Table.Cell>
                                         <Button negative icon onClick={() => this.handleOnDeleteClick(todo.id)} >
