@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Table, Button, Icon, Checkbox, Form } from 'semantic-ui-react';
 
-import TODO_API_ENDPOINT from '../toDo/ToDo';
+import { TODO_API_ENDPOINT } from '../toDo/ToDo';
 
 export default class ToDoTableRowEdit extends React.Component {
     state = {
@@ -48,8 +48,10 @@ export default class ToDoTableRowEdit extends React.Component {
                 <Table.Cell>
                     <Form.Field>
                         <input
-                            value={this.props.task}
+                            value={this.state.task}
                             onChange={this.handleOnChange}
+                            name="task"
+                            placeholder={this.state.task}
                         />
                     </Form.Field>
                 </Table.Cell>
