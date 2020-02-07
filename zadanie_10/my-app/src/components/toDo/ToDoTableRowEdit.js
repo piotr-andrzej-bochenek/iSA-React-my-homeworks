@@ -48,7 +48,7 @@ export default class ToDoTableRowEdit extends React.Component {
                 <Table.Cell>
                     <Form.Field>
                         <input
-                            value={this.state.task}
+                            value={this.state.editedTask}
                             onChange={this.handleOnChange}
                             name="task"
                             placeholder={this.state.task}
