@@ -41,9 +41,9 @@ export default class ToDo extends React.Component {
         this.fetchToDoList();
     };
 
-    handleSetDone = (id) => {
+    handleStatusChange = (id, done) => {
         const formattedData = {
-           done: true,
+           done: !done,
         };
 
         fetch(`${TODO_API_ENDPOINT}/todo/${id}.json`, {
@@ -92,7 +92,7 @@ export default class ToDo extends React.Component {
                                         <Checkbox
                                             toggle
                                             checked={todo.done}
-                                            onChange={()=>this.handleSetDone(todo.id)}
+                                            onChange={()=>this.handleStatusChange(todo.id, todo.done)}
                                         />
                                     </Table.Cell>
                                     <Table.Cell>
