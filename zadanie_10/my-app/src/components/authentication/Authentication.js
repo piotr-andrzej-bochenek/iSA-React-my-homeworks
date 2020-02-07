@@ -1,29 +1,29 @@
 import * as React from "react";
-import { Button, Link } from "semantic-ui-react";
-import firebase from "firebase";
-
+import { Link } from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
+import firebase from 'firebase';
 
 export default class Authentication extends React.Component {
     state = {
         user: null,
-        reference: null,
+        ref: null,
     };
 
     componentDidMount() {
-        const authReference = firebase.auth().onAuthStateChanged( user => {
+        const authRef = firebase.auth().onAuthStateChanged( user => {
             this.setState({
                 user,
             });
         });
 
         this.setState({
-            reference: authReference,
+            ref: authRef,
         });
     };
 
     componentWillUnmount() {
-        if (this.state.reference) {
-            this.state.reference();
+        if (this.state.ref) {
+            this.state.ref();
         };
     };
 
@@ -32,7 +32,7 @@ export default class Authentication extends React.Component {
             ? this.props.children
             : <>
                 <h1>Access only to registered users</h1>
-                <Button variant="contained" color="primary" component={Link} to='/signin'>
+                <Button variant="contained" color="yellow" component={Link} to='/sign-in'>
                    Sign in
                 </Button>
             </>

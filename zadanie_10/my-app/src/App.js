@@ -1,13 +1,14 @@
 import * as React from 'react';
+import { BrowserRouter as Router } from "react-router-dom";
 
-import ToDo from './components/toDo/ToDo';
+import Content from './components/content/Content';
 import './App.css';
 
 function App() {
   return (
-    <div>
-      <ToDo />
-    </div>
+    <Router>
+        <Content />
+    </Router>
   );
 }
 
