@@ -4,7 +4,7 @@ import {Button, Icon, Checkbox, Table } from 'semantic-ui-react';
 export default function TableRowDisplay(props) {
 
     const handleStatusChange = (id, isDone) => {
-        props.setStatus(id, isDone);
+        props.setTaskStatus(id, isDone);
     };
     
     const handleOnEditClick = id => {

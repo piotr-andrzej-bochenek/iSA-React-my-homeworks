@@ -112,6 +112,7 @@ export default class ToDo extends React.Component {
                             ?  <ToDoTableRowEdit 
                                 key={toDoTask.id}
                                 id={toDoTask.id}
+                                toDoTask={toDoTask}
                                 task={toDoTask.task}
                                 done={toDoTask.done}
                                 setTaskStatus={this.handleStatusChange}
@@ -129,8 +130,6 @@ export default class ToDo extends React.Component {
                                 onDeleteTask={this.handleOnDeleteClick}
                             />
                             })}
-                        
-                        
                     </Table.Body>
                 </Table>
                 <AddTask onAdd={this.handleOnAction} />

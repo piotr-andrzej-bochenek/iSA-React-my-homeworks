@@ -6,21 +6,23 @@ import TODO_API_ENDPOINT from '../toDo/ToDo';
 export default class ToDoTableRowEdit extends React.Component {
     state = {
         ...this.props.toDoTask,
+        editedTask: '',
     };
 
     handleOnChange = event => {
         this.setState({
-            [event.target.name]: event.target.value
+            editedTask: event.target.value,
         });
     };
 
     handleStatusChange = (id, isDone) => {
-        this.props.setStatus(id, isDone);
+        this.props.setTaskStatus(id, isDone);
     };
 
     handleOnSaveClick = () => {
         const editedTaskData = {
-            ...this.state,
+            task: this.state.editedTask,
+            done: this.state.done,
         };
 
         fetch(`${TODO_API_ENDPOINT}/todo/${this.props.id}.json`, {
@@ -48,8 +50,6 @@ export default class ToDoTableRowEdit extends React.Component {
                         <input
                             value={this.props.task}
                             onChange={this.handleOnChange}
-                            name="task"
-                            placeholder={this.props.task}
                         />
                     </Form.Field>
                 </Table.Cell>
