@@ -32,9 +32,7 @@ export default class Authentication extends React.Component {
             ? this.props.children
             : <>
                 <h1>Access only to registered users</h1>
-                <Button variant="contained" color="yellow" component={Link} to='/sign-in'>
-                   Sign in
-                </Button>
+                <Link to="/sign-in">Sign in</Link>
             </>
     };
 };
