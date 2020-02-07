@@ -1,13 +1,15 @@
 import * as React from 'react';
-import { Table, Icon, Button, Checkbox } from 'semantic-ui-react';
+import { Table } from 'semantic-ui-react';
 
+import ToDoTableRowDisplay from '../toDo/ToDoTableRowDisplay';
+import ToDoTableRowEdit from '../toDo/ToDoTableRowEdit';
 import AddTask from '../addTask/AddTask';
 
 export const TODO_API_ENDPOINT = 'https://jfdz12-homework-task-10-pab.firebaseio.com';
 
 export default class ToDo extends React.Component {
     state = {
-        todoList: [],
+        toDoList: [],
         editId: null,
         error: "",
     };
@@ -25,7 +27,7 @@ export default class ToDo extends React.Component {
                 });
 
                 this.setState({
-                    todoList: formattedData,
+                    toDoList: formattedData,
                 });
             })
             .catch( error => {
@@ -59,8 +61,21 @@ export default class ToDo extends React.Component {
     handleOnEditClick = idSelectedToEdit => {
         this.setState({
             editId: idSelectedToEdit,
-        })
-    }
+        });
+    };
+
+    handleOnSaveEditForm = () => {
+        this.handleOnAction();
+        this.setState({
+            editId: null,
+        });
+    };
+
+    handleOnCloseEditForm = () => {
+        this.setState({
+            editId: null
+        });
+    };
 
     handleOnDeleteClick = id => {
         fetch(`${TODO_API_ENDPOINT}/todo/${id}.json`, {
@@ -76,7 +91,7 @@ export default class ToDo extends React.Component {
     };
 
     render() {
-        const { todoList } = this.state;
+        const { toDoList } = this.state;
 
         return (
             <div>
@@ -92,30 +107,30 @@ export default class ToDo extends React.Component {
                     </Table.Header>
 
                     <Table.Body>
-                        {todoList.map( todo => {
-                            return (
-                                <Table.Row key={todo.id} id={todo.id}>
-                                    <Table.Cell>{todo.task}</Table.Cell>
-                                    <Table.Cell>
-                                        <Checkbox
-                                            toggle
-                                            checked={todo.done}
-                                            onChange={()=>this.handleStatusChange(todo.id, todo.done)}
-                                        />
-                                    </Table.Cell>
-                                    <Table.Cell>
-                                        <Button primary icon onClick={() => this.handleOnEditClick(todo.id)} >
-                                            <Icon name='edit' />
-                                        </Button>
-                                    </Table.Cell>
-                                    <Table.Cell>
-                                        <Button negative icon onClick={() => this.handleOnDeleteClick(todo.id)} >
-                                            <Icon name='trash' />
-                                        </Button>
-                                    </Table.Cell>
-                                </Table.Row>
-                            );
-                        })}
+                        {toDoList.map( toDoTask => {
+                            return this.state.editId === toDoTask.id
+                            ?  <ToDoTableRowEdit 
+                                key={toDoTask.id}
+                                id={toDoTask.id}
+                                task={toDoTask.task}
+                                done={toDoTask.done}
+                                setTaskStatus={this.handleStatusChange}
+                                onDeleteTask={this.handleOnDeleteClick}
+                                onSaveEditedTask={this.handleOnSaveEditForm}
+                                onCloseEditForm={this.handleOnCloseEditForm}
+                            />
+                            : <ToDoTableRowDisplay
+                                key={toDoTask.id}
+                                id={toDoTask.id}
+                                task={toDoTask.task}
+                                done={toDoTask.done}
+                                setTaskStatus={this.handleStatusChange}
+                                openEditForm={this.handleOnEditClick}
+                                onDeleteTask={this.handleOnDeleteClick}
+                            />
+                            })}
+                        
+                        
                     </Table.Body>
                 </Table>
                 <AddTask onAdd={this.handleOnAction} />
