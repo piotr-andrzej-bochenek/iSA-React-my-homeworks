@@ -95,9 +95,9 @@ export default class ToDo extends React.Component {
         const { toDoList } = this.state;
 
         return (
-            <Authentication>
                 <div>
-                    <h1>My first "to do" list:</h1>
+                    <h2>My first "to do" list:</h2>
+                    <Authentication>
                     <Table celled structured>
                         <Table.Header>
                             <Table.Row>
@@ -135,8 +135,8 @@ export default class ToDo extends React.Component {
                         </Table.Body>
                     </Table>
                     <AddTask onAdd={this.handleOnAction} />
+                    </Authentication>
                 </div>
-            </Authentication>
         );
     };
 };

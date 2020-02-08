@@ -47,11 +47,10 @@ export default class Login extends React.Component {
     };
 
     render() {
-
         const { email, password, redirect } = this.state;
       
         if (redirect) {
-            return <Redirect to={'/'} />
+            return <Redirect to={'/todo'} />
         }
 
         return (
@@ -59,7 +58,7 @@ export default class Login extends React.Component {
                 <h1>{ this.isRegistered() ? 'Register' : 'Sign in' }</h1>
                 <Form>
                     <Form.Field>
-                        <label>E-mail address</label>
+                        <label>E-mail address: </label>
                         <input
                             autoFocus
                             autoComplete='email'
@@ -67,11 +66,11 @@ export default class Login extends React.Component {
                             name='email'
                             value={email}
                             onChange={this.handleOnChange}
-                            placeholder='E-mail address: '
+                            placeholder='Type e-mail address here'
                         />
                     </Form.Field>
                     <Form.Field>
-                        <label>Password</label>
+                        <label>Password: </label>
                         <input
                             name="password"
                             label="Password"
@@ -80,7 +79,7 @@ export default class Login extends React.Component {
                             autoComplete="current-password"
                             onChange={this.handleOnChange}
                             value={password}
-                            placeholder='Password: '
+                            placeholder='Password'
                         />
                     </Form.Field>
                     <Form.Field>

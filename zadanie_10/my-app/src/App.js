@@ -7,6 +7,7 @@ import './App.css';
 function App() {
   return (
     <Router>
+        <h1>Welcome to ToDo list manager!</h1>
         <Content />
     </Router>
   );
