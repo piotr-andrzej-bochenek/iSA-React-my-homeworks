@@ -19,7 +19,7 @@ export default function LinearBuffer() {
       <div className={classes.root}>
           <div>Progress:</div>
   
-        <LinearProgress variant="buffer" value={completed} valueBuffer={buffer} color="secondary" />
+        <LinearProgress variant="buffer" color="secondary" />
   
       </div>
     );
