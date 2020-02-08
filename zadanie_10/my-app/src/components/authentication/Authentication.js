@@ -1,11 +1,16 @@
-import * as React from "react";
+import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
 import firebase from 'firebase';
 
 export default class Authentication extends React.Component {
     state = {
         user: null,
         ref: null,
+    };
+
+    handleLogOut = () => {
+        firebase.auth().signOut();
     };
 
     componentDidMount() {
@@ -28,7 +33,10 @@ export default class Authentication extends React.Component {
 
     render() {
         return this.state.user
-            ? this.props.children
+            ? <>
+                <Button floated="right" attached='top' onClick={this.handleLogOut}>Log out</Button>
+                {this.props.children}
+            </>
             : <>
                 <h1>Access only to registered users</h1>
                 <Link to="/sign-in">Sign in</Link>
