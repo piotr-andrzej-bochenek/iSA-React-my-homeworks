@@ -23,8 +23,11 @@ class ClientService {
 
         let discount = 0;
         if (ordersValue >= this.minimalPurchaseForDiscount) {
+            if (client.type === 'INTERNAL') {
+                discount += 0.15;
+            };
             discount += 0.1;
-        }
+        };
 
         return discount;
     }
