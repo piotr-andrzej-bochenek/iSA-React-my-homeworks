@@ -27,6 +27,46 @@ describe('getNextOrderNumber', () => {
             throw new Error(`Assertion failed! Actual="${actual}", where should be "ISA-#3"`);
         }
     });
+
+    test('should generate correct number if orders are undefined', () => {
+        // arrange
+        const service = new ClientService();
+
+        const client = {
+            orders: undefined,
+            type: 'EXTERNAL'
+        };
+
+        // act
+        const actual = service.getNextOrderNumber(client);
+
+        // assert
+        if (actual === 'ISA-#1') {
+            return;
+        } else {
+            throw new Error(`Assertion failed! Actual="${actual}", where should be "ISA-#1"`);
+        }
+    });
+
+    test('should generate correct number if client has zero orders', () => {
+        // arrange
+        const service = new ClientService();
+
+        const client = {
+            orders: [],
+            type: 'EXTERNAL'
+        };
+
+        // act
+        const actual = service.getNextOrderNumber(client);
+
+        // assert
+        if (actual === 'ISA-#1') {
+            return;
+        } else {
+            throw new Error(`Assertion failed! Actual="${actual}", where should be "ISA-#1"`);
+        }
+    });
 });
 
 describe('calculateDiscount', () => {
