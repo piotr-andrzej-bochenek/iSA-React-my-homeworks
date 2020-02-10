@@ -86,7 +86,27 @@ describe('calculateDiscount', () => {
         if(actual === 0) {
             return;
         } else {
-            throw new Error('Assertion failed');
+            throw new Error(`Assertion failed. Actual="${actual}", where it should be "0"`);
+        }
+    });
+
+    test('should return 0.1 for orders equal 500', () => {
+        // arrange
+        const service = new ClientService();
+
+        const client = {
+            orders: [500],
+            type: 'EXTERNAL'
+        };
+
+        // act
+        const actual = service.calculateDiscount(client);
+
+        // assert
+        if (actual === 0.1) {
+            return;
+        } else {
+            throw new Error(`Assertion failed. Actual="${actual}", where it should be "0.1"`);
         }
     });
 
@@ -106,7 +126,7 @@ describe('calculateDiscount', () => {
         if(actual === 0.1) {
             return;
         } else {
-            throw new Error('Assertion failed');
+            throw new Error(`Assertion failed. Actual="${actual}", where it should be "0.1"`);
         }
     });
 });
