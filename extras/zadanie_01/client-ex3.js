@@ -22,7 +22,7 @@ class ClientService {
         const ordersValue = client.orders.reduce((acc, curr) => acc + curr, 0);
 
         let discount = 0;
-        if (ordersValue > this.minimalPurchaseForDiscount) {
+        if (ordersValue >= this.minimalPurchaseForDiscount) {
             discount += 0.1;
         }
 
