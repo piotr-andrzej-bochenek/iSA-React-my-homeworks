@@ -25,7 +25,7 @@ describe('getNextOrderNumber', () => {
             return;
         } else {
             throw new Error(`Assertion failed! Actual="${actual}", where should be "ISA-#3"`);
-        }
+        };
     });
 
     test('should generate correct number if orders are undefined', () => {
@@ -45,7 +45,7 @@ describe('getNextOrderNumber', () => {
             return;
         } else {
             throw new Error(`Assertion failed! Actual="${actual}", where should be "ISA-#1"`);
-        }
+        };
     });
 
     test('should generate correct number if client has zero orders', () => {
@@ -65,12 +65,12 @@ describe('getNextOrderNumber', () => {
             return;
         } else {
             throw new Error(`Assertion failed! Actual="${actual}", where should be "ISA-#1"`);
-        }
+        };
     });
 });
 
 describe('calculateDiscount', () => {
-    test('should return 0 for external client with orders less than 500', () => {
+    test('should return 0 for external client who orders less than minimal purchase for discount', () => {
         // arrange
         const service = new ClientService();
 
@@ -87,10 +87,10 @@ describe('calculateDiscount', () => {
             return;
         } else {
             throw new Error(`Assertion failed. Actual="${actual}", where it should be "0"`);
-        }
+        };
     });
 
-    test('should return 0 for internal client with orders less than 500', () => {
+    test('should return 0 for internal client who orders less than minimal purchase for discount', () => {
         // arrange
         const service = new ClientService();
 
@@ -107,10 +107,10 @@ describe('calculateDiscount', () => {
             return;
         } else {
             throw new Error(`Assertion failed. Actual="${actual}", where it should be "0"`);
-        }
+        };
     });
 
-    test('should return 0.1 for external client with orders equal 500', () => {
+    test('should return 0.1 for external client who orders equally the minimal purchase for discount', () => {
         // arrange
         const service = new ClientService();
 
@@ -127,10 +127,10 @@ describe('calculateDiscount', () => {
             return;
         } else {
             throw new Error(`Assertion failed. Actual="${actual}", where it should be "0.1"`);
-        }
+        };
     });
 
-    test('should return 0.25 for internal client with orders equal 500', () => {
+    test('should return 0.25 for internal client who orders equally the minimal purchase for discount', () => {
         // arrange
         const service = new ClientService();
 
@@ -147,10 +147,10 @@ describe('calculateDiscount', () => {
             return;
         } else {
             throw new Error(`Assertion failed. Actual="${actual}", where it should be "0.25"`);
-        }
+        };
     });
 
-    test('should return 0.1 for external client with orders higher than 500', () => {
+    test('should return 0.1 for external client who orders more than minimal purchase for discount', () => {
         // arrange
         const service = new ClientService();
 
@@ -167,10 +167,10 @@ describe('calculateDiscount', () => {
             return;
         } else {
             throw new Error(`Assertion failed. Actual="${actual}", where it should be "0.1"`);
-        }
+        };
     });
 
-    test('should return 0.25 for internal client with orders higher than 500', () => {
+    test('should return 0.25 for internal client who orders more than minimal purchase for discount', () => {
         // arrange
         const service = new ClientService();
 
@@ -187,7 +187,7 @@ describe('calculateDiscount', () => {
             return;
         } else {
             throw new Error(`Assertion failed. Actual="${actual}", where it should be "0.25"`);
-        }
+        };
     });
 });
 
@@ -211,7 +211,7 @@ describe('calculateNewOrderValue', () => {
             return;
         } else {
             throw new Error(`Assertion failed' Actual="${actual}", where should be "300"`);
-        }
+        };
     });
 
     test('should return unchaged orders value for internal client purchase without discount', () => {
@@ -233,10 +233,10 @@ describe('calculateNewOrderValue', () => {
             return;
         } else {
             throw new Error(`Assertion failed' Actual="${actual}", where should be "300"`);
-        }
+        };
     });
 
-    test('should return 450 for external client with orders equal 500 ', () => {
+    test('should return 90% of orders value for external client with orders equal minimum purchase for discount', () => {
         // arrange
         const service = new ClientService();
 
@@ -255,10 +255,10 @@ describe('calculateNewOrderValue', () => {
             return;
         } else {
             throw new Error(`Assertion failed' Actual="${actual}", where should be "450"`);
-        }
+        };
     });
 
-    test('should return 375 for internal client with orders equal 500 ', () => {
+    test('should return 75% of orders value for internal client with orders equal minimum purchase for discount', () => {
         // arrange
         const service = new ClientService();
 
@@ -277,10 +277,10 @@ describe('calculateNewOrderValue', () => {
             return;
         } else {
             throw new Error(`Assertion failed' Actual="${actual}", where should be "375"`);
-        }
+        };
     });
 
-    test('should return 540 for external client with orders equal 600 ', () => {
+    test('should return 90% of orders value for external client with orders higher than minimum purchase for discount', () => {
         // arrange
         const service = new ClientService();
 
@@ -299,10 +299,10 @@ describe('calculateNewOrderValue', () => {
             return;
         } else {
             throw new Error(`Assertion failed' Actual="${actual}", where should be "540"`);
-        }
+        };
     });
 
-    test('should return 450 for internal client with orders equal 600 ', () => {
+    test('should return 75% of orders value for internal client with orders higher than minimum purchase for discount', () => {
         // arrange
         const service = new ClientService();
 
@@ -321,6 +321,6 @@ describe('calculateNewOrderValue', () => {
             return;
         } else {
             throw new Error(`Assertion failed' Actual="${actual}", where should be "450"`);
-        }
+        };
     });
 });
