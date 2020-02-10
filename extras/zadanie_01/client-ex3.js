@@ -6,8 +6,12 @@ class ClientService {
     }
 
     getNextOrderNumber(client) {
-        return `${ORDER_PREFIX}-#${client.orders.length + 1}`;
-    }
+        if (client.orders === undefined || client.orders.length < 1) {
+            return `${ORDER_PREFIX}-#1`;
+        } else {
+            return `${ORDER_PREFIX}-#${client.orders.length + 1}`;
+        };
+    };
 
 
 
