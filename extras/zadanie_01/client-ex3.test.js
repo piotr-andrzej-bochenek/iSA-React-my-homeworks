@@ -190,3 +190,137 @@ describe('calculateDiscount', () => {
         }
     });
 });
+
+describe('calculateNewOrderValue', () => {
+    test('should return unchaged orders value for external client purchase without discount', () => {
+        // arrange
+        const service = new ClientService();
+
+        const client = {
+            orders: [50, 250],
+            type: 'EXTERNAL'
+        };
+
+        const ordersValue = client.orders.reduce((acc, curr) => acc + curr, 0);
+        
+        // act
+        const actual = service.calculateNewOrderValue(client, ordersValue);
+
+        // assert
+        if (actual === 300) {
+            return;
+        } else {
+            throw new Error(`Assertion failed' Actual="${actual}", where should be "300"`);
+        }
+    });
+
+    test('should return unchaged orders value for internal client purchase without discount', () => {
+        // arrange
+        const service = new ClientService();
+
+        const client = {
+            orders: [50, 250],
+            type: 'INTERNAL'
+        };
+
+        const ordersValue = client.orders.reduce((acc, curr) => acc + curr, 0);
+
+        // act
+        const actual = service.calculateNewOrderValue(client, ordersValue);
+
+        // assert
+        if (actual === 300) {
+            return;
+        } else {
+            throw new Error(`Assertion failed' Actual="${actual}", where should be "300"`);
+        }
+    });
+
+    test('should return 450 for external client with orders equal 500 ', () => {
+        // arrange
+        const service = new ClientService();
+
+        const client = {
+            orders: [100, 200, 200],
+            type: 'EXTERNAL'
+        };
+
+        const ordersValue = client.orders.reduce((acc, curr) => acc + curr, 0);
+
+        // act
+        const actual = service.calculateNewOrderValue(client, ordersValue);
+
+        // assert
+        if (actual === 450) {
+            return;
+        } else {
+            throw new Error(`Assertion failed' Actual="${actual}", where should be "450"`);
+        }
+    });
+
+    test('should return 375 for internal client with orders equal 500 ', () => {
+        // arrange
+        const service = new ClientService();
+
+        const client = {
+            orders: [100, 200, 200],
+            type: 'INTERNAL'
+        };
+
+        const ordersValue = client.orders.reduce((acc, curr) => acc + curr, 0);
+
+        // act
+        const actual = service.calculateNewOrderValue(client, ordersValue);
+
+        // assert
+        if (actual === 375) {
+            return;
+        } else {
+            throw new Error(`Assertion failed' Actual="${actual}", where should be "375"`);
+        }
+    });
+
+    test('should return 540 for external client with orders equal 600 ', () => {
+        // arrange
+        const service = new ClientService();
+
+        const client = {
+            orders: [100, 100, 200, 200],
+            type: 'EXTERNAL'
+        };
+
+        const ordersValue = client.orders.reduce((acc, curr) => acc + curr, 0);
+
+        // act
+        const actual = service.calculateNewOrderValue(client, ordersValue);
+
+        // assert
+        if (actual === 540) {
+            return;
+        } else {
+            throw new Error(`Assertion failed' Actual="${actual}", where should be "540"`);
+        }
+    });
+
+    test('should return 450 for internal client with orders equal 600 ', () => {
+        // arrange
+        const service = new ClientService();
+
+        const client = {
+            orders: [100, 100, 200, 200],
+            type: 'INTERNAL'
+        };
+
+        const ordersValue = client.orders.reduce((acc, curr) => acc + curr, 0);
+
+        // act
+        const actual = service.calculateNewOrderValue(client, ordersValue);
+
+        // assert
+        if (actual === 450) {
+            return;
+        } else {
+            throw new Error(`Assertion failed' Actual="${actual}", where should be "450"`);
+        }
+    });
+});
