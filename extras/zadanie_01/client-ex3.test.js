@@ -70,7 +70,7 @@ describe('getNextOrderNumber', () => {
 });
 
 describe('calculateDiscount', () => {
-    test('should return 0 for orders less than 500', () => {
+    test('should return 0 for external client with orders less than 500', () => {
         // arrange
         const service = new ClientService();
 
@@ -90,7 +90,27 @@ describe('calculateDiscount', () => {
         }
     });
 
-    test('should return 0.1 for orders equal 500', () => {
+    test('should return 0 for internal client with orders less than 500', () => {
+        // arrange
+        const service = new ClientService();
+
+        const client = {
+            orders: [100, 50, 100, 20],
+            type: 'INTERNAL'
+        };
+
+        // act
+        const actual = service.calculateDiscount(client);
+
+        // assert
+        if(actual === 0) {
+            return;
+        } else {
+            throw new Error(`Assertion failed. Actual="${actual}", where it should be "0"`);
+        }
+    });
+
+    test('should return 0.1 for external client with orders equal 500', () => {
         // arrange
         const service = new ClientService();
 
@@ -110,7 +130,27 @@ describe('calculateDiscount', () => {
         }
     });
 
-    test('should return 0.1 for orders higher than 500', () => {
+    test('should return 0.25 for internal client with orders equal 500', () => {
+        // arrange
+        const service = new ClientService();
+
+        const client = {
+            orders: [500],
+            type: 'INTERNAL'
+        };
+
+        // act
+        const actual = service.calculateDiscount(client);
+
+        // assert
+        if (actual === 0.25) {
+            return;
+        } else {
+            throw new Error(`Assertion failed. Actual="${actual}", where it should be "0.25"`);
+        }
+    });
+
+    test('should return 0.1 for external client with orders higher than 500', () => {
         // arrange
         const service = new ClientService();
 
@@ -127,6 +167,26 @@ describe('calculateDiscount', () => {
             return;
         } else {
             throw new Error(`Assertion failed. Actual="${actual}", where it should be "0.1"`);
+        }
+    });
+
+    test('should return 0.25 for internal client with orders higher than 500', () => {
+        // arrange
+        const service = new ClientService();
+
+        const client = {
+            orders: [100, 500, 100, 200],
+            type: 'INTERNAL'
+        };
+
+        // act
+        const actual = service.calculateDiscount(client);
+
+        // assert
+        if(actual === 0.25) {
+            return;
+        } else {
+            throw new Error(`Assertion failed. Actual="${actual}", where it should be "0.25"`);
         }
     });
 });
