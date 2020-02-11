@@ -10,28 +10,39 @@
 <button>Odejmij</button>
 <script>
     // Napisz skrypt, który na kliknięcie przycisku zwiększy lub zmniejszy wartość w elemencie counter.
-const counter = document.getElementById('counter');
-const button = document.getElementsByTagName('button');
-let value = 0;
-const incrementer = button[0].addEventListener('click', console.log('increased'), false);
-const decrementer = button[1].addEventListener('click', console.log('decreased'), false);
-
-// for (let i = 0; i < button.length; i++) {
-//     button[i].addEventListener('click', console.log("click reported"), false);
-// };
-
-// function counterModifier() {
-//     if 
-//     return value;
-// };
-
-// for (let i = 0; i < button.length; i++) {
-//     button[i].addEventListener('click', counterModifier(button[i]), false);
-// };
-
-
-
     // * Po osięgnięciu 10 lub -10, przycisk zwiększania lub zmiejszania powinien się zablokować. (zakres od -10 do 10)
+    
+    const increase = document.getElementsByTagName("button")[0];
+    const decrease = document.getElementsByTagName("button")[1];
+    const counter = document.getElementById("counter");
+
+    const add = () => {
+        let start = counter.innerText;
+        counter.innerText = parseFloat(start) + 1;
+        
+        if (start > -11) {
+            decrease.removeAttribute("disabled")
+        };
+        if (start == 9) {
+            increase.setAttribute("disabled", '')
+        };
+    };
+    
+    const substract = () => {
+        let start = counter.innerText;
+        counter.innerText = parseFloat(start) - 1;
+
+        if (start < 11) {
+            increase.removeAttribute("disabled");
+        };
+        if (start == -9) {
+            decrease.setAttribute("disabled", '');
+        };
+    };  
+    
+    increase.addEventListener("click", add);
+    decrease.addEventListener("click", substract);
+    
 </script>
 </body>
 </html>
