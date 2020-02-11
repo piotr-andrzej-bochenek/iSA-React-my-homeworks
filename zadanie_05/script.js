@@ -137,20 +137,31 @@
 /*
 
 Input dla zadań 6-10: [11, -10, 50, 5, -8, 9, 20, 21, -4, 11, -5, -12, 100, 20, 14, 8, 19, 44, -21, -53, 17, -21]
+*/
 
+const numbers = [11, -10, 50, 5, -8, 9, 20, 21, -4, 11, -5, -12, 100, 20, 14, 8, 19, 44, -21, -53, 17, -21];
+
+/*
 6. Policz sumę wszytskich elementów tablicy
     Output: '1.1 Suma elementów w tablicy: 215'
+*/
 
+/*
 7. Policz sumę wartości bezwględnych w tablicy
     Output: '1.2 Suma wartości bezwględnych z elementów w tablicy: 483'
+*/
 
+/*
 8. Wyświetl tylko elementy większe lub równe od 20:
     Output: '1.3 Elementy większe lub równe od 20: 50,20,21,100,20,44'
+*/
 
+/*
 9. Wyświetl sumę elementów tylko ujemnych:
     Output: '1.4 Sume elementów ujemnych: -134'
+*/
 
+/*
 10*. Wyświetl sumę elemnetów na pozycjach parzystych:
     Output: '1.5 Suma elementów parzystych: 193'
-
 */
