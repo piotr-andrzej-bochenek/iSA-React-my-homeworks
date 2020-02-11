@@ -10,8 +10,35 @@
 <script>
     // Napisz skrypt, który na kliknięcie przycisku pokaże komunikat z możliwością wpisania tekstu, który potem
     // zostanie użyty do zastąpienia "tutaj wstaw imię" w hello
+   
+    const header = document.getElementById("hello");
+    const button = document.getElementsByTagName('button');
+    const namePlaceHolder = `"tutaj wstaw imię"`;
+    
+    function showPrompt() {
+        let name = prompt("What's your name?");
+        if (header === `Cześć "tutaj wstaw imię"`) {
+            header.innerText = header.innerText.replace(namePlaceHolder, name);
+        } else {
+            header.innerText = `${header.innerText.slice(0,5)} ${name}!`;
+        };
+    };
 
+    button[0].addEventListener("click", showPrompt);
+   
     // * Dodaj możliwość pojawienia się tego samego komunikatu po wpisaniu na klawiaturze CTRL + O
+
+    document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.key === 'o') {
+            let name = prompt("What's your name?");
+            if (header === `Cześć "tutaj wstaw imię"`) {
+                header.innerText = header.innerText.replace(namePlaceHolder, name);
+            } else {
+                header.innerText = `${header.innerText.slice(0,5)} ${name}!`;
+            };
+        };
+    });
+
 </script>
 </body>
 </html>
