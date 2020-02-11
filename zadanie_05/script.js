@@ -146,22 +146,61 @@ const numbers = [11, -10, 50, 5, -8, 9, 20, 21, -4, 11, -5, -12, 100, 20, 14, 8,
     Output: '1.1 Suma elementów w tablicy: 215'
 */
 
+const sum = numbers.reduce( (acc, val) => {
+    return acc + val;
+});
+
+console.log(`1.1 Suma elementów w tablicy: ${sum}`);
+
 /*
 7. Policz sumę wartości bezwględnych w tablicy
     Output: '1.2 Suma wartości bezwględnych z elementów w tablicy: 483'
 */
+
+const sumAbsolute = numbers.reduce( (acc, val) => {
+    return acc + Math.abs(val);
+});
+
+console.log(`1.2 Suma wartości bezwględnych z elementów w tablicy: ${sumAbsolute}`);
 
 /*
 8. Wyświetl tylko elementy większe lub równe od 20:
     Output: '1.3 Elementy większe lub równe od 20: 50,20,21,100,20,44'
 */
 
+const displayElementsEqualAndBiggerThan = (input, borderNumber) => {
+    return input.filter(function (value) {
+        return value >= borderNumber;
+    });
+};
+
+console.log(`1.3 Elementy większe lub równe od 20: ${displayElementsEqualAndBiggerThan(numbers, 20)}`);
+
 /*
 9. Wyświetl sumę elementów tylko ujemnych:
     Output: '1.4 Sume elementów ujemnych: -134'
 */
 
+const sumNegatives = numbers
+    .filter(function(number) {
+        return (number < 0)})
+    .reduce(function(number1, number2) {
+        return number1 + number2});
+
+console.log(`1.4 Suma elementów ujemnych: ${sumNegatives}`);
+
 /*
 10*. Wyświetl sumę elemnetów na pozycjach parzystych:
     Output: '1.5 Suma elementów parzystych: 193'
 */
+
+    const sumEvenIndexNumbers = numbers
+        .filter(function(number, index) {
+            if ((index + 1) % 2) {
+                return number;
+            }})
+        .reduce(function(number1, number2) {
+            return number1 + number2;
+        });
+
+    console.log(`1.5 Suma elementów parzystych: ${sumEvenIndexNumbers}`);
