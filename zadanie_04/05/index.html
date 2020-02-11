@@ -13,10 +13,26 @@
     }
 </style>
 <body>
-
+<h1>Press any key to shot the bullet again!</h1>
 <script>
     // Napisz skrypt, który będzie tworzyć element o klasie bullet i dodawać w losowe miejsce na stronie
     // (widoczne dla użytkownika).
+
+    const body = document.querySelector("body");
+    const newDiv = document.createElement("div");
+    body.appendChild(newDiv);
+    
+    const bulletDiv = document.getElementsByTagName("div")[0];
+    bulletDiv.classList.add("bullet");
+    
+    function shotBullet() {
+        const yAxisPoint = `${Math.random()*100}`;
+        const xAxisPoint = `${Math.random()*100}`;
+        bulletDiv.setAttribute("style", "position: absolute; top:"+yAxisPoint+"vh; right:"+xAxisPoint+"vw");
+    };
+
+    window.addEventListener("keydown", shotBullet);
+
 </script>
 </body>
 </html>
