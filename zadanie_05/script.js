@@ -89,7 +89,22 @@
     Shandy ma 76 lat
     Frederica ma 89 lat
     Razem mają: 253 lat
+*/
+    function displayUserByAgeAndSex(requestedAge, requestedSex) {
+        let selectedUsersAge = 0;
 
+        people.forEach( function (person) {
+            if (person.age >= requestedAge && person.gender === requestedSex) {
+                selectedUsersAge += person.age;
+                console.log(`${person.first_name} ma ${person.age} lat`);
+            };
+        });
+
+        console.log(`Razem mają ${selectedUsersAge} lat`);
+    }
+
+    displayUserByAgeAndSex(30, 'Female');
+/*
 5*.  Dodaj do kolekcji dodatkowe klucze:
     height: wiek + 100
     weight: wiek + 10
