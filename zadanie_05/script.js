@@ -36,7 +36,17 @@
     Mr Garvey Islep work as Internal Auditor in Livefish
     Rev Aristotle Gozard work as Software Test Engineer IV in Feedspan
     Honorable Bryon Boulder work as Senior Editor in Kazu
+*/
 
+    function displayUsers() {
+        people.forEach((user, index) => {
+            console.log(`${people[index].title} ${people[index].first_name} ${people[index].last_name} work as ${people[index].job_title} in ${people[index].company}`);
+        });
+    };
+    
+    displayUsers();
+
+/*
 3. Skróć zawartość kolekcji do kluczy id, first_name, last_name i dodaj nowy klucz full_name
     składający się z first_name i last_name.
     Output: [
