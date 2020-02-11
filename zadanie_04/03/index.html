@@ -8,8 +8,42 @@
 <h1 id="countdown">10</h1>
 <script>
     // Napisz skrypt, który na wykona count od 10 do 0. Na koniec countdownu wyświetl alert o treści "KONIEC".
-
     // * Dodaj możliwość zapuazowania skryptu po kliknięciu spacji.
+
+    let counter = document.getElementById("countdown");
+    let units = parseFloat(counter.innerText);
+    let pause = false;
+
+    function countDown() {
+        counter.innerText = units.toString();
+
+        if (pause === false) {
+            if (units >= -1) {
+                units--;
+            };
+            if (units === -2) {
+                clearInterval (countDownInterval);
+                counter.innerText = "0";
+            };
+            if (units === -2) {
+                alert("Koniec")
+            };
+        };
+    };
+
+    function pauseCountdown(key) {
+        if (key.keyCode == "32") {
+            if (pause === false) {
+                pause = true;
+            } else if (pause === true) {
+                pause = false;
+            };
+        };
+    };
+
+    let countDownInterval = window.setInterval(countDown, 1000);
+    window.addEventListener("keydown", pauseCountdown);
+
 </script>
 </body>
 </html>
