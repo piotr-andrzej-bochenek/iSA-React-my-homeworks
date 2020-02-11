@@ -112,6 +112,29 @@
     Następnie zwróc tablie imion tych osób, które mają BMI w zakresie 18,5–24,99.
     Output: ["Kaylil", "Muire", "Aristotle", "Mano", "Bryon"]
 
+*/
+
+    function displayUsersByBMI (minBMI, maxBMI) {
+        const extendedBMIUsersArray = people.map( user => ({
+            id: user.id,
+            first_name: user.first_name,
+            height: user.age + 100,
+            weight: user.age + 10,
+            bmi: ((user.age + 10) / Math.pow(((user.age + 100)/100),2)),
+        }))
+
+        let rangedBMIUsersArray = [];
+        
+        extendedBMIUsersArray.forEach( function (user) {
+            if (user.bmi >= minBMI && user.bmi <= maxBMI ) {
+                rangedBMIUsersArray.push(user.first_name);
+                };
+        });
+        return rangedBMIUsersArray;
+    };
+    console.log(displayUsersByBMI(18.5, 24.99));
+
+/*
 
 Input dla zadań 6-10: [11, -10, 50, 5, -8, 9, 20, 21, -4, 11, -5, -12, 100, 20, 14, 8, 19, 44, -21, -53, 17, -21]
 
