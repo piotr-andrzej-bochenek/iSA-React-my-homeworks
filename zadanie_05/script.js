@@ -43,7 +43,7 @@
             console.log(`${people[index].title} ${people[index].first_name} ${people[index].last_name} work as ${people[index].job_title} in ${people[index].company}`);
         });
     };
-    
+
     displayUsers();
 
 /*
@@ -60,7 +60,27 @@
     {id:8 ,first_name: "Garvey", last_name: "Garvey", full_name: "Garvey Islep"}
     {id:9 ,first_name: "Aristotle", last_name: "Aristotle", full_name: "Aristotle Gozard"}
     {id:10 ,first_name: "Bryon", last_name: "Bryon", full_name: "Bryon Boulder"}
+*/
 
+    function usersFullNamesGenerator() {
+        let usersWithFullNames = [];
+        
+        people.forEach(user => {
+            let userFullName = {
+                id: user.id,
+                first_name: user.first_name,
+                last_name: user.last_name,
+                full_name: `${user.first_name} ${user.last_name}`
+            };
+            usersWithFullNames.push(userFullName);
+        });
+
+        return usersWithFullNames;
+    };
+
+    console.log ("Full names array:", usersFullNamesGenerator());
+
+/*
 4. Wyświetl jedynie osoby, które mają co najmniej 30 lat i są kobietami w konwencji 'imię ma X lat'
     i na koniec wyświetl sumę ich lat.
     Output:
