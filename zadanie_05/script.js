@@ -7,7 +7,24 @@
     Output: '5.2: taka rasa nie istnieje'
     Input: showOnlyUsersWithRace('Polish')
     Output: '5.3: []'
+*/
+    function showOnlyUsersWithRace(race) {
+        if (typeof(race) !== 'string') {
+            return querryResult = 'taka rasa nie istnieje'
+        } else {
+            return usersWithGivenRace = people
+            .filter( user => {
+                if (user.race === race) {
+                    return user;
+                }
+            })
+        };
+    };
 
+    console.log ("5.1: ", showOnlyUsersWithRace('Cambodian'))
+    console.log ("5.2: ", showOnlyUsersWithRace(1))
+    console.log ("5.3: ", showOnlyUsersWithRace('Polish'))
+/*
 2. Wyświetl każdego z userów w konwencji: title first_name last_name work as job_title in company.
     Output:
     Rev Kaylil Hovey work as Recruiting Manager in Browseblab
